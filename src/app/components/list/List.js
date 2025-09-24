@@ -41,44 +41,44 @@ const List = () => {
             <ul className="flex !gap-5 flex-wrap items-center justify-center">
                 {
                     notes.length > 0 ?
-                    notes.map((note, index) => {
-                        return (
-                            <li onClick={() => { toggleNoteModel(note.id) }} key={index} className="min-w-[200px] relative max-w-[500px] shadow-2xl shadow-black/50 min-h-[150px] max-h-[400px] !text-black flex flex-col !gap-3 !px-4 !py-3 rounded-2xl "
-                                style={{ background: note.color }}>
-                                <h3 className="text-2xl">{note.title}</h3>
-                                <p className="text-[16px] ">{note.des}</p>
-                                <BsThreeDotsVertical onClick={() => handleToggleDropDwon(note.id, note)} className=" absolute top-2 right-3 text-xl" />
-                                {
-                                    note.dropDown &&
-                                    (<div className=" absolute right-8 !px-2 !py-4 bg-secdanry/30 backdrop-blur-[30px] !gap-3 rounded-2xl flex-col flex">
-                                        <span className="flex !gap-2 items-center justify-center text-[14px]" onClick={() => handleDelete(note.id)}>{<AiFillDelete className="!text-[18px]" />} Delete</span>
-                                        <span className="flex !gap-2 items-center justify-center text-[14px]" onClick={toggleModel}>{<FaPen className="!text-[18px]" />} Edit</span>
+                        notes.map((note, index) => {
+                            return (
+                                <>
+                                    <li onClick={() => { toggleNoteModel(note.id) }} key={index} className="min-w-[200px] relative max-w-[500px] shadow-2xl shadow-black/50 min-h-[150px] max-h-[400px] !text-black flex flex-col !gap-3 !px-4 !py-3 rounded-2xl "
+                                        style={{ background: note.color }}>
+                                        <h3 className="text-2xl">{note.title}</h3>
+                                        <p className="text-[16px] ">{note.des}</p>
+                                        <BsThreeDotsVertical onClick={() => handleToggleDropDwon(note.id, note)} className=" absolute top-2 right-3 text-xl" />
+                                        {
+                                            note.dropDown &&
+                                            (<div className=" absolute right-8 !px-2 !py-4 bg-secdanry/30 backdrop-blur-[30px] !gap-3 rounded-2xl flex-col flex">
+                                                <span className="flex !gap-2 items-center justify-center text-[14px]" onClick={() => handleDelete(note.id)}>{<AiFillDelete className="!text-[18px]" />} Delete</span>
+                                                <span className="flex !gap-2 items-center justify-center text-[14px]" onClick={toggleModel}>{<FaPen className="!text-[18px]" />} Edit</span>
 
 
-                                    </div>)
-                                }
-                                {
-                                    console.log(note)
-                                }
-
-                                {
-                                    model && note.dropDown &&
-                                    (<Model note={note} setModel={toggleModel} handleEdit={handleEdit} titel={note.title} />
-                                    )
-                                }
-
-                                {
-                                    noteModel &&
-                                    notes.map((n, index) => {
-                                        if (n.id === id) {
-                                            return <NoteModel key={index} note={n} />
+                                            </div>)
                                         }
-                                    })}
-                            </li>
 
-                        )
-                    }) :
-                    <h1 className="text-xl text-neutral-200">There was no note!</h1>
+                                    </li>
+
+                                    {
+                                        model && note.dropDown &&
+                                        (<Model note={note} setModel={toggleModel} handleEdit={handleEdit} titel={note.title} />
+                                        )
+                                    }
+
+                                    {
+                                        noteModel &&
+                                        notes.map((n, index) => {
+                                            if (n.id === id) {
+                                                return <NoteModel key={index} note={n} />
+                                            }
+                                        })}
+                                </>
+
+                            )
+                        }) :
+                        <h1 className="text-xl text-neutral-200">There was no note!</h1>
                 }
             </ul>
         </>
