@@ -69,9 +69,9 @@ const List = () => {
 
                                 {
                                     noteModel &&
-                                    notes.map((n) => {
+                                    notes.map((n, index) => {
                                         if (n.id === id) {
-                                            return <NoteModel note={n} />
+                                            return <NoteModel key={index} note={n} />
                                         }
                                     })}
                             </li>
