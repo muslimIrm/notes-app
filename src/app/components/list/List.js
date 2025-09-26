@@ -59,7 +59,7 @@ const List = ({notes}) => {
                                             } className=" absolute top-2 right-3 text-xl" />
                                         {
                                             note.dropDown &&
-                                            (<div onClick={(e)=> e.stopPropagation()} className=" absolute right-8 !px-2 !py-4 bg-secdanry/30 backdrop-blur-[30px] !gap-3 rounded-2xl flex-col flex">
+                                            (<div  className=" absolute right-8 !px-2 !py-4 bg-secdanry/30 backdrop-blur-[30px] !gap-3 rounded-2xl flex-col flex">
                                                 <span className="flex !gap-2 items-center justify-center text-[14px]" onClick={() => handleDelete(note.id)}>{<AiFillDelete className="!text-[18px]" />} Delete</span>
                                                 <span className="flex !gap-2 items-center justify-center text-[14px]" onClick={toggleModel}>{<FaPen className="!text-[18px]" />} Edit</span>
 
